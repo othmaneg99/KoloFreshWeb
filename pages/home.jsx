@@ -8,7 +8,7 @@ import Footer from '@components/footer/footer.component';
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className='container'>
       <Head>
         <title>Kolo Fresh</title>
         <meta name='description' content='Kolo Fresh' />
@@ -16,14 +16,14 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <main className={styles.main}>
+      <main className='mainContent'>
         <Grid container spacing={24}>
           <Grid item xs={6}>
             <Image src={mintSvg} height={50} width={156} alt='Mint' className={styles.mintImage} />
-            <p className={styles.mainText}>
+            <p className='mainText'>
               commander des plats <span className='greenColor'>100%</span> fait maison
             </p>
-            <p className={styles.secondaryText}>
+            <p className='secondaryText'>
               Browse from our list of specials to place your order and have food delivered to you in no time. Affordable, tasty and fast!
             </p>
           </Grid>
