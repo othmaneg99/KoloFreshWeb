@@ -5,7 +5,8 @@
       "@components/*": ["./components/*"],
       "@styles/*": ["./styles/*"],
       "@pages/*": ["./pages/*"],
-      "@assets/*": ["./assets/*"]
+      "@assets/*": ["./assets/*"],
+      "@utils/*": ["./utils/*"]
     }
   },
   "exclude": ["dist", "node_modules", "build", ".vscode", ".next", "coverage", ".npm", ".yarn"]
