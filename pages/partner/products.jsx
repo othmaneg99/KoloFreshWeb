@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import Footer from '@components/footer/footer.component';
-import st from '/styles/products.module.css';
+import st from '/styles/partnerProducts.module.scss';
 import Button from '@mui/material/Button';
 import ButtonRed from '@components/button/buttonRed.component'
 import { Box } from '@mui/system';
