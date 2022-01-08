@@ -1,0 +1,288 @@
+.container{
+
+    margin-left: 320px;
+}
+
+.welcomeText{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 56px;
+    
+
+    color: #C32530;
+}
+.userName{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 54px;
+    line-height: 56px;
+
+    margin-left: 10px;
+    color: #000000;
+}
+
+.spread {
+
+    position: relative;
+    display: flex;
+}
+
+.parentDiv {
+
+    display: flex;
+    flex-direction: column;
+    margin-left: 66px;
+}
+
+.pagesButtons {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center;
+    color: #263238;
+
+    display:block;
+
+    border-radius: 0px;
+
+    padding: 23px;
+
+    background: linear-gradient(0deg, #CBDFD7, #CBDFD7), linear-gradient(0deg, #676767, #676767), #676767;
+
+}
+
+.signOutBtn {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: #263238;
+    text-align: center;
+    left: 0;
+    right:0;
+
+    display:block;
+
+    position: absolute;
+    
+    bottom: 0;
+
+    border-radius: 0px;
+
+    padding: 23px;
+
+    background: linear-gradient(0deg, #CBDFD7, #CBDFD7), linear-gradient(0deg, #676767, #676767), #676767;
+
+}
+
+.pageButtonActive {
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0em;
+    color: #263238;
+
+    display:block;
+
+    padding: 23px;
+
+    background: linear-gradient(0deg, #AACDBF, #AACDBF), linear-gradient(0deg, #676767, #676767), #676767;
+
+}
+.pagesButtonsDiv {
+    
+    text-align: center;
+    width: 320px;
+    margin-top: 240px; 
+}
+
+.plante {
+
+    height: 131.73766822835236px;
+    width: 109.91776052851273px;
+    border-radius: 0px;
+
+    top:-55px;
+    position:absolute; 
+    right:0;
+
+    filter: drop-shadow(1px 3px 10px rgba(0, 0, 0, 0.44));
+    transform: rotate(25.09deg);
+}
+
+.sideBar{
+    
+    width: 320px;
+
+    height: 100%;
+
+    left: 0;
+    top: 0;
+
+    z-index: 300;
+    
+    border-radius: 0px;
+
+    position: fixed;
+
+
+    background: #CBDFD7;
+}
+
+
+.searchInput{
+
+    padding: 20px;
+
+    height: 74px;
+    width: 532px;
+    border: none;
+
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.20000000298023224px;
+
+
+    text-align: center;
+
+    border-radius: 50px;
+    
+
+    background: #EBEBEB;
+}
+
+.searchDiv{
+    font-size: 48px;
+}
+
+.div2{
+
+    padding: 20px;
+}
+
+.prodCard{
+
+    position: relative;
+    height: 180px;
+    width: 910px;
+
+    margin-top: 20px;
+
+    background: #f7f4f4;
+    border-radius: 30px;
+}
+
+.prodImg{
+
+    height: 138.75970458984375px;
+    width: 179.11392211914062px;
+    border-radius: 0px;
+    
+}
+
+.prodImgDiv{
+
+    margin: 20px;
+}
+
+.prodName{
+
+    width: 295.5379638671875px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+.prodDescr{
+
+    width: 295.5379638671875px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    
+    
+    color: #263238;
+}
+
+.prodPrice{
+
+    height: 69.37983703613281px;
+    width: 295.5379638671875px;
+
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+
+    margin-left: 150px;
+    
+    
+    color: #263238;
+}
+
+
+.btnDesac{
+
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+
+    background: rgba(0, 100, 60, 0.5);
+    border-radius: 7px;
+
+    color: #FFFFFF;
+
+}
+
+.btnDelete{
+
+    font-family: Poppins;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0em;
+
+    background: #C32530;
+
+    margin-left: 20px;
+
+    border-radius: 7px;
+
+    color: #FFFFFF;
+}
+
+.actionButtons{
+    position: absolute;
+    right: 0;
+    margin-right: 15px;
+}
+
+.allProducts{
+    margin-top: 30px;
+}
