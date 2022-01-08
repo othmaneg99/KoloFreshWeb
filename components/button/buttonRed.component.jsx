@@ -12,7 +12,7 @@ const ButtonRed = props => {
   };
 
   return (
-    <Button variant={p.variant} size={p.size} style={p.style} className={props.className}>
+    <Button variant={p.variant} size={p.size} style={p.style} className={props.className} onClick={props.onClick}>
       {props.children}
     </Button>
   );

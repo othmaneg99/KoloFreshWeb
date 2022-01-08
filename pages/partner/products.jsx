@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Head from 'next/head';
 import Footer from '@components/footer/footer.component';
 import st from '/styles/products.module.css';
@@ -7,7 +8,7 @@ import { Box } from '@mui/system';
 import { Stack } from '@mui/material';
 import { Pagination } from '@mui/material';
 
-export default function Kitchen() {
+export default function PartnerProducts() {
 
   const style = {
     btnAddProd: {
@@ -266,5 +267,16 @@ export default function Kitchen() {
     </div>
 
     </body>
+=======
+import { Container } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import styles from '/styles/partnerProducts.module.scss';
+
+export default function PartnerProducts() {
+  return (
+    <div className={styles.container}>
+      <h1>Partner products</h1>
+    </div>
+>>>>>>> 87207374c153eecc967ec3b0f9f5fcb8ffc72dd9
   );
 }
