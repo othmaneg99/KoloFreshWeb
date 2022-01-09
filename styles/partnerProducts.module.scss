@@ -1,21 +1,17 @@
-.container{
-
+.container {
   margin-left: 320px;
 }
 
-.welcomeText{
-
+.welcomeText {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 54px;
   line-height: 56px;
-  
 
-  color: #C32530;
+  color: #c32530;
 }
-.userName{
-
+.userName {
   font-family: Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -27,20 +23,17 @@
 }
 
 .spread {
-
   position: relative;
   display: flex;
 }
 
 .parentDiv {
-
   display: flex;
   flex-direction: column;
   margin-left: 66px;
 }
 
 .pagesButtons {
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-style: normal;
@@ -49,18 +42,16 @@
   text-align: center;
   color: #263238;
 
-  display:block;
+  display: block;
 
   border-radius: 0px;
 
   padding: 23px;
 
-  background: linear-gradient(0deg, #CBDFD7, #CBDFD7), linear-gradient(0deg, #676767, #676767), #676767;
-
+  background: linear-gradient(0deg, #cbdfd7, #cbdfd7), linear-gradient(0deg, #676767, #676767), #676767;
 }
 
 .signOutBtn {
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-style: normal;
@@ -69,24 +60,22 @@
   color: #263238;
   text-align: center;
   left: 0;
-  right:0;
+  right: 0;
 
-  display:block;
+  display: block;
 
   position: absolute;
-  
+
   bottom: 0;
 
   border-radius: 0px;
 
   padding: 23px;
 
-  background: linear-gradient(0deg, #CBDFD7, #CBDFD7), linear-gradient(0deg, #676767, #676767), #676767;
-
+  background: linear-gradient(0deg, #cbdfd7, #cbdfd7), linear-gradient(0deg, #676767, #676767), #676767;
 }
 
 .pageButtonActive {
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 30px;
   font-style: normal;
@@ -94,36 +83,32 @@
   letter-spacing: 0em;
   color: #263238;
 
-  display:block;
+  display: block;
 
   padding: 23px;
 
-  background: linear-gradient(0deg, #AACDBF, #AACDBF), linear-gradient(0deg, #676767, #676767), #676767;
-
+  background: linear-gradient(0deg, #aacdbf, #aacdbf), linear-gradient(0deg, #676767, #676767), #676767;
 }
 .pagesButtonsDiv {
-  
   text-align: center;
   width: 320px;
-  margin-top: 240px; 
+  margin-top: 240px;
 }
 
 .plante {
-
   height: 131.73766822835236px;
   width: 109.91776052851273px;
   border-radius: 0px;
 
-  top:-55px;
-  position:absolute; 
-  right:0;
+  top: -55px;
+  position: absolute;
+  right: 0;
 
   filter: drop-shadow(1px 3px 10px rgba(0, 0, 0, 0.44));
   transform: rotate(25.09deg);
 }
 
-.sideBar{
-  
+.sideBar {
   width: 320px;
 
   height: 100%;
@@ -132,18 +117,15 @@
   top: 0;
 
   z-index: 300;
-  
+
   border-radius: 0px;
 
   position: fixed;
 
-
-  background: #CBDFD7;
+  background: #cbdfd7;
 }
 
-
-.searchInput{
-
+.searchInput {
   padding: 20px;
 
   height: 74px;
@@ -157,26 +139,22 @@
   line-height: 28px;
   letter-spacing: 0.20000000298023224px;
 
-
   text-align: center;
 
   border-radius: 50px;
-  
 
-  background: #EBEBEB;
+  background: #ebebeb;
 }
 
-.searchDiv{
+.searchDiv {
   font-size: 48px;
 }
 
-.div2{
-
+.div2 {
   padding: 20px;
 }
 
-.prodCard{
-
+.prodCard {
   position: relative;
   height: 180px;
   width: 910px;
@@ -187,21 +165,17 @@
   border-radius: 30px;
 }
 
-.prodImg{
-
+.prodImg {
   height: 138.75970458984375px;
   width: 179.11392211914062px;
   border-radius: 0px;
-  
 }
 
-.prodImgDiv{
-
+.prodImgDiv {
   margin: 20px;
 }
 
-.prodName{
-
+.prodName {
   width: 295.5379638671875px;
 
   font-family: Poppins;
@@ -211,8 +185,7 @@
   line-height: 33px;
 }
 
-.prodDescr{
-
+.prodDescr {
   width: 295.5379638671875px;
 
   font-family: Poppins;
@@ -220,13 +193,11 @@
   font-weight: normal;
   font-size: 24px;
   line-height: 33px;
-  
-  
+
   color: #263238;
 }
 
-.prodPrice{
-
+.prodPrice {
   height: 69.37983703613281px;
   width: 295.5379638671875px;
 
@@ -237,14 +208,11 @@
   line-height: 33px;
 
   margin-left: 150px;
-  
-  
+
   color: #263238;
 }
 
-
-.btnDesac{
-
+.btnDesac {
   font-family: Poppins;
   font-size: 17px;
   font-style: normal;
@@ -255,12 +223,10 @@
   background: rgba(0, 100, 60, 0.5);
   border-radius: 7px;
 
-  color: #FFFFFF;
-
+  color: #ffffff;
 }
 
-.btnDelete{
-
+.btnDelete {
   font-family: Poppins;
   font-size: 17px;
   font-style: normal;
@@ -268,21 +234,21 @@
   line-height: 33px;
   letter-spacing: 0em;
 
-  background: #C32530;
+  background: #c32530;
 
   margin-left: 20px;
 
   border-radius: 7px;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
-.actionButtons{
+.actionButtons {
   position: absolute;
   right: 0;
   margin-right: 15px;
 }
 
-.allProducts{
+.allProducts {
   margin-top: 30px;
 }
