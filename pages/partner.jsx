@@ -8,12 +8,12 @@ import done from '@assets/images/done.svg';
 import tomato from '@assets/images/tomato.svg';
 import plant from '@assets/images/plant.svg';
 import ButtonRed from '@components/button/buttonRed.component';
-import styles from '/styles/cooker.module.scss';
+import styles from '/styles/partner.module.scss';
 import Box from '@mui/material/Box';
 import React, { useState } from 'react';
 import { capitalizeFirstLetter } from '@utils/global';
 
-export default function Cooker() {
+export default function Partner() {
   const [step, setStep] = useState(1);
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
