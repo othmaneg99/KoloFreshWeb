@@ -7,6 +7,10 @@ const Header = props => {
   const style = {
     header: {
       padding: '2.5rem 2.5rem',
+      // position: 'sticky',
+      // top: 0,
+      backgroundColor: '#fff',
+      zIndex: 1,
     },
     btnSignIn: {
       width: '183px',
