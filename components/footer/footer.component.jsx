@@ -1,6 +1,3 @@
-import { Grid } from '@mui/material';
-import logoSvg from '@assets/images/logo.svg';
-import ButtonRed from '@components/button/buttonRed.component';
 import Image from 'next/image';
 import playstore from '@assets/images/playstore.svg';
 import applestore from '@assets/images/applestore.svg';
@@ -26,7 +23,7 @@ const Footer = () => {
 
   return (
     <footer className='footer'>
-      <Image src={curve} width={''} className='curve' sizes='(max-width: 100%)' />
+      <Image src={curve} width={''} alt='curve' className='curve' sizes='(max-width: 100%)' />
       <div className='footerContainer'>
         <div style={footerSection}>
           <p className='title'>KOLO FRESH</p>
@@ -57,7 +54,7 @@ const Footer = () => {
           </a>
           <a href=''>
             CONDITIONS <br />
-            D'UTILISATION
+            D&quot;UTILISATION
           </a>
           <a href=''>
             POLITIQUE DE <br />

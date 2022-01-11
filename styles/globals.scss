@@ -1,5 +1,6 @@
 @import './theme.module';
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
 html,
 body {
   padding: 0;
@@ -62,39 +63,113 @@ a {
   margin: 0 !important;
 }
 
-
 .footer {
   font-family: 'Volkhov';
   .footerContainer {
-    padding-top : 50px ;
-    padding-bottom : 70px ;
+    padding-top: 50px;
+    padding-bottom: 70px;
     margin-bottom: 0;
     position: relative;
-    background-color: #CBDFD7;
+    background-color: #cbdfd7;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    p{
+    p {
       margin: 0;
       padding-bottom: 5px;
-
     }
-    a{
+    a {
       font-size: 16px;
       padding-bottom: 7px;
     }
   }
 
-.copywrite{
-      background-color: #CBDFD7;
-      margin:0;
+  .copywrite {
+    background-color: #cbdfd7;
+    margin: 0;
+  }
+  .store {
+    margin: 0px;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 17px;
+  }
 }
-.store{
-  margin: 0px;
+
+.connect {
+  margin-top: 70px;
+  text-align: center;
+  color: #aacdbf;
+  font-family: 'Roboto' !important;
+  font-size: 28px;
+  font-weight: 400;
 }
-.title{
-        font-weight: bold;
-        font-size: 17px;
-}
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'roboto';
+  .input {
+    border: 2.5px solid #e4e8ef;
+    border-radius: 30px;
+    height: 50px;
+    width: 350px;
+    margin-top: 12px;
+  }
+  .motDePasse {
+    color: #828282;
+    text-decoration: underline;
+    text-align: left;
+    margin-left: 25px;
+    font-size: 13px;
+    font-weight: lighter;
+    margin-top: 10px;
+  }
+  .btnConnect {
+    border: 2.5px solid #e4e8ef;
+    border-radius: 30px;
+    height: 55px;
+    width: 350px;
+    color: #c32530;
+    background: #ffff;
+    font-weight: 500;
+
+    margin-top: 30px;
+  }
+  .btnCreateAccount {
+    border: 2.5px solid #aacdbf;
+    border-radius: 30px;
+    height: 55px;
+    width: 350px;
+    color: white;
+    background: #aacdbf;
+    margin-top: 15px;
+    margin-bottom: 60px;
+    font-weight: bold;
+  }
+  .checkboxContainer {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    align-items: center;
+    color: #828282;
+    margin-top: 15px;
+    label {
+      font-size: 13px;
+      margin-left: 20px;
+    }
+  }
+  ::placeholder {
+    font-size: 16px;
+    color: #828282;
+    padding-left: 20px;
+  }
+  .password {
+    margin-bottom: 25px;
+  }
 }

@@ -4,23 +4,14 @@
   position: fixed !important;
   top: 200px !important;
   left: -22px !important;
-  bottom: 0 !important;
-  right: unset !important;
   height: 166px !important;
   width: 156px !important;
   min-width: unset !important;
-  max-width: unset !important;
   min-height: unset !important;
-  margin-left: unset !important;
-  max-height: unset !important;
   margin: 0 !important;
-  display: unset !important;
+  z-index: -1 ;
 }
 
-.ellipseImage {
-  float: right;
-}
-
-.tajineImage {
-  float: right;
+.homeButtons {
+  cursor: pointer;
 }
