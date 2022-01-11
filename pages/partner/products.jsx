@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Footer from '@components/footer/footer.component';
 import st from '/styles/partnerProducts.module.scss';
 import Button from '@mui/material/Button';
 import ButtonRed from '@components/button/buttonRed.component';
@@ -6,6 +7,13 @@ import { Box } from '@mui/system';
 import { Stack } from '@mui/material';
 import { Pagination } from '@mui/material';
 import Image from 'next/image';
+import plante from '@assets/images/plante.svg';
+import bastilla from '@assets/images/bastilla.svg';
+import tl from '@assets/images/tl.webp';
+import tp from '@assets/images/tp.jpg';
+import cl from '@assets/images/cl.jpg';
+
+
 
 export default function PartnerProducts() {
   const style = {
@@ -21,13 +29,7 @@ export default function PartnerProducts() {
   return (
 
     <body>
-      <div style={{ marginLeft: '320px' }} className='container'>
-        <Head>
-          <title>Kolo Fresh</title>
-          <meta name='description' content='Kolo Fresh' />
-          <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'></meta>
-          <link rel='icon' href='/favicon.ico' />
-        </Head>
+    <div className={st.container} >
 
         <div className={st.spread}>
           <div className={st.sideBar}>
@@ -50,16 +52,15 @@ export default function PartnerProducts() {
             </div>
           </div>
 
-          <div className={st.planteDiv}>
+
+          <div className={st.parentDiv} style={{position:'relative'}}>
+          <div className={st.planteDiv} style={{right:'0', position:'absolute', top: "-15px"}}>
             <Image
               className={st.plante}
-              src='/../../assets/images/plante.png'
-              layout="fill"
+              src={plante} height={131} width={109} 
               alt=''
             />
           </div>
-
-          <div className={st.parentDiv}>
             <div className={st.spread}>
               <p className={st.welcomeText}>Bienvenu</p>
               <p className={st.userName}>Cuisine SAMIA</p>
@@ -74,14 +75,16 @@ export default function PartnerProducts() {
             </div>
 
             <div className={st.allProducts}>
+
               <div className={st.prodCard}>
+
                 <div className={st.spread}>
+
                   <div className={st.prodImgDiv}>
                     <Image
                       className={st.prodImg}
-                      src='/../../assets/images/bastilla.svg'
-                      height="138px"
-                      width="179px"
+                      src={bastilla}
+                      height={138} width={179} 
                       alt=''
                     />
                   </div>
@@ -109,16 +112,21 @@ export default function PartnerProducts() {
                   <div>
                     <p className={st.prodPrice}>150 DH</p>
                   </div>
+
                 </div>
 
+              </div>
+
                 <div className={st.prodCard}>
+
                   <div className={st.spread}>
                     <div className={st.prodImgDiv}>
-                      {/* <Image
-                        className={st.prodImg}
-                        src='https://res.cloudinary.com/hv9ssmzrz/image/fetch/c_fill,f_auto,h_600,q_auto,w_800/https://s3-eu-west-1.amazonaws.com/images-ca-1-0-1-eu/recipe_photos/original/62031/open-uri20130617-2-194qwmc'
-                        alt=''
-                      /> */}
+                    <Image
+                      className={st.prodImg}
+                      src={tl}
+                      height={138} width={179} 
+                      alt=''
+                    />
                     </div>
 
                     <div>
@@ -150,11 +158,12 @@ export default function PartnerProducts() {
                 <div className={st.prodCard}>
                   <div className={st.spread}>
                     <div className={st.prodImgDiv}>
-                      {/* <Image
+                      {<Image
                         className={st.prodImg}
-                        src='https://www.la-cuisine-marocaine.com/photos-recettes/02-tajine-de-poulet-aux-legumes.jpg'
+                        src={tp}
                         alt=''
-                      /> */}
+                        height={138} width={179} 
+                      />}
                     </div>
 
                     <div>
@@ -186,11 +195,12 @@ export default function PartnerProducts() {
                 <div className={st.prodCard}>
                   <div className={st.spread}>
                     <div className={st.prodImgDiv}>
-                      {/* <Image
+                      { <Image
                         className={st.prodImg}
-                        src='https://mcbi-conseil.ma/wp-content/uploads/2020/09/couscous-7-legumes.jpg'
+                        src={cl}
+                        height={138} width={179} 
                         alt=''
-                      /> */}
+                      />}
                     </div>
 
                     <div>
@@ -219,17 +229,17 @@ export default function PartnerProducts() {
                   </div>
 
                   <Stack alignItems='center' spacing={2}>
-                    <Pagination style={{ margin: '35px' }} count={10} shape='rounded' />
+                    <Pagination style={{ margin: '35px', marginTop: '80px' }} count={10} shape='rounded' />
                   </Stack>
                 </div>
               </div>
             </div>
           </div>
+          
         </div>
 
-        {/* <Footer />
-         */}
-      </div>
+        <Footer />
+
     </body>
   );
 }

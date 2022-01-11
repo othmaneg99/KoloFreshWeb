@@ -1,5 +1,6 @@
 .container {
   margin-left: 320px;
+  margin-right: 50px;
 }
 
 .welcomeText {
@@ -23,7 +24,6 @@
 }
 
 .spread {
-  position: relative;
   display: flex;
 }
 
@@ -31,6 +31,24 @@
   display: flex;
   flex-direction: column;
   margin-left: 66px;
+}
+
+.pagesButtons {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #263238;
+
+  display: block;
+
+  border-radius: 0px;
+
+  padding: 23px;
+
+  background: linear-gradient(0deg, #cbdfd7, #cbdfd7), linear-gradient(0deg, #676767, #676767), #676767;
 }
 
 .pagesButtons {
@@ -91,25 +109,23 @@
 }
 .pagesButtonsDiv {
   text-align: center;
-  width: 320px;
-  margin-top: 240px;
+  width: 260px;
+  margin-top: 200px;
 }
 
 .plante {
-  height: 131.73766822835236px;
-  width: 109.91776052851273px;
+  height: 131px;
+  width: 109px;
   border-radius: 0px;
 
   top: -55px;
-  position: absolute;
-  right: 0;
 
   filter: drop-shadow(1px 3px 10px rgba(0, 0, 0, 0.44));
   transform: rotate(25.09deg);
 }
 
 .sideBar {
-  width: 320px;
+  width: 260px;
 
   height: 100%;
 
@@ -157,9 +173,9 @@
 .prodCard {
   position: relative;
   height: 180px;
-  width: 910px;
 
   margin-top: 20px;
+
 
   background: #f7f4f4;
   border-radius: 30px;
@@ -207,7 +223,7 @@
   font-size: 24px;
   line-height: 33px;
 
-  margin-left: 150px;
+  margin-left: 50px;
 
   color: #263238;
 }
