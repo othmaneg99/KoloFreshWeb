@@ -12,6 +12,7 @@ import bastilla from '@assets/images/bastilla.svg';
 import tl from '@assets/images/tl.webp';
 import tp from '@assets/images/tp.jpg';
 import cl from '@assets/images/cl.jpg';
+import SideBar from '@components/sideBar/sideBar.component';
 
 
 
@@ -32,28 +33,11 @@ export default function PartnerProducts() {
     <div className={st.container} >
 
         <div className={st.spread}>
-          <div className={st.sideBar}>
-            <div className={st.pagesButtonsDiv}>
-              <a href='#' className={st.pageButtonActive}>
-                Produits
-              </a>
-              <a href='#' className={st.pagesButtons}>
-                Commandes
-              </a>
-              <a href='#' className={st.pagesButtons}>
-                Statistiques
-              </a>
-              <a href='#' className={st.pagesButtons}>
-                Paramètres
-              </a>
-              <a href='#' className={st.signOutBtn}>
-                Se déconnecter
-              </a>
-            </div>
-          </div>
 
+          <SideBar/>
 
           <div className={st.parentDiv} style={{position:'relative'}}>
+            
           <div className={st.planteDiv} style={{right:'0', position:'absolute', top: "-15px"}}>
             <Image
               className={st.plante}
@@ -237,8 +221,6 @@ export default function PartnerProducts() {
           </div>
           
         </div>
-
-        <Footer />
 
     </body>
   );
