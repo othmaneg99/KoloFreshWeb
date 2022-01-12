@@ -17,6 +17,27 @@ export default function Partner() {
   const [step, setStep] = useState(1);
   const [nom, setNom] = useState('');
   const [prenom, setPrenom] = useState('');
+  const [mail, setMail] = useState('');
+  const [tel, setTel] = useState('');
+
+  function onAddButtonClick(e) {
+    e.preventDefault();
+    if (step === 1) {
+      if (nom.trim() === '' || prenom.trim() === '') {
+        console.log('test');
+        return;
+      } else {
+        setStep(2);
+      }
+    }
+    if (step === 2) {
+      if (mail.trim() === '' || tel.trim() === '') {
+        return;
+      } else {
+        setStep(3);
+      }
+    }
+  }
 
   return (
     <div className='container'>
@@ -33,6 +54,7 @@ export default function Partner() {
                   Nom*
                 </label>
                 <input
+                  required
                   className={styles.input}
                   type='text'
                   name='nom'
@@ -40,7 +62,6 @@ export default function Partner() {
                   onChange={event => {
                     setNom(event.target.value.toUpperCase());
                   }}
-                  required
                 />
               </div>
               <div className={styles.inputWrap}>
@@ -48,6 +69,7 @@ export default function Partner() {
                   Prénom*
                 </label>
                 <input
+                  required
                   className={styles.input}
                   type='text'
                   name='prenom'
@@ -55,17 +77,11 @@ export default function Partner() {
                   onChange={event => {
                     setPrenom(capitalizeFirstLetter(event.target.value));
                   }}
-                  required
                 />
               </div>
             </div>
             <Box textAlign='center'>
-              <ButtonRed
-                onClick={() => {
-                  setStep(2);
-                }}
-                className={styles.btn}
-              >
+              <ButtonRed onClick={e => onAddButtonClick(e)} className={styles.btn}>
                 Suivant
               </ButtonRed>
             </Box>
@@ -76,28 +92,41 @@ export default function Partner() {
       {step == 2 && (
         <main id='step2' className='mainContent'>
           <Image src={step2} alt='step 2' />
-          <form action='' autoComplete='off'>
+          <form action='' autoComplete='off' noValidate>
             <div className={styles.formRow}>
               <div className={styles.inputWrap}>
-                <label className={styles.label} htmlFor='nom'>
+                <label className={styles.label} htmlFor='mail'>
                   Email*
                 </label>
-                <input className={styles.input} type='email' name='nom' id='' required />
+                <input
+                  className={styles.input}
+                  type='email'
+                  name='mail'
+                  id=''
+                  onChange={event => {
+                    setMail(event.target.value);
+                  }}
+                  required
+                />
               </div>
               <div className={styles.inputWrap}>
-                <label className={styles.label} htmlFor='prenom'>
+                <label className={styles.label} htmlFor='tel'>
                   Numéro de telèphone*
                 </label>
-                <input className={styles.input} type='text' name='prenom' id='' required />
+                <input
+                  className={styles.input}
+                  type='text'
+                  name='tel'
+                  id=''
+                  onChange={event => {
+                    setTel(event.target.value);
+                  }}
+                  required
+                />
               </div>
             </div>
             <Box textAlign='center'>
-              <ButtonRed
-                onClick={() => {
-                  setStep(3);
-                }}
-                className={styles.btn}
-              >
+              <ButtonRed onClick={e => onAddButtonClick(e)} className={styles.btn}>
                 Suivant
               </ButtonRed>
             </Box>
