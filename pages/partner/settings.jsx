@@ -92,7 +92,7 @@ export default function PartnerSettings() {
                     value={selectedCategories}
                     style={style.categoriesDropdown}
                     onChange={onCategoriesChange}
-                    input={<OutlinedInput id='select-multiple-chip' label='Chip' />}
+                    input={<OutlinedInput id='select-multiple-chip' label='Catégorie' />}
                     renderValue={selected => (
                       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                         {selected.map(value => (
