@@ -3,7 +3,7 @@ import { Grid, Modal, Box, Button, Input } from '@mui/material';
 
 export default function AddProduct(props) {
   const { open, onClose } = props;
-  const [name, setName] = useState('des');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [images, setImages] = useState();

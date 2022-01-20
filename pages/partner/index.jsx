@@ -25,7 +25,6 @@ export default function Partner() {
     e.preventDefault();
     if (step === 1) {
       if (nom.trim() === '' || prenom.trim() === '') {
-        console.log('test');
         return;
       } else {
         setStep(2);
@@ -142,7 +141,7 @@ export default function Partner() {
           <Image src={step3} alt='step 3' />
           <Image src={done} alt='step done' />
           <h1>
-            Félicitations {nom} {prenom} {tel} {mail}!
+            Félicitations {nom} {prenom}!
           </h1>
           <p className={styles.paragraph}>
             Votre inscription a bien été prise en compte. Vous serez contacté par
