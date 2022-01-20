@@ -25,7 +25,6 @@ export default function Partner() {
     e.preventDefault();
     if (step === 1) {
       if (nom.trim() === '' || prenom.trim() === '') {
-        console.log('test');
         return;
       } else {
         setStep(2);

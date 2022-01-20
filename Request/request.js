@@ -17,8 +17,6 @@ module.exports = class Request {
   }
 
   async get(url, data) {
-      console.log("Request GET")
-    console.log(data);
     let items;
     await axios
       .get(url, {
@@ -31,7 +29,6 @@ module.exports = class Request {
           items = data;
         }
       });
-    console.log(items);
     return items;
   }
 
@@ -49,16 +46,13 @@ module.exports = class Request {
   }
 
   async deletetfo(url, data) {
-    console.log(data);
     let items;
     await axios
       .delete(url, data)
       .then(({ data }) => {
         items = data;
       })
-      .catch(e => {
-        console.log(e);
-      });
+      .catch(e => {});
 
     return items;
   }
@@ -70,10 +64,7 @@ module.exports = class Request {
       .then(({ data }) => {
         items = data;
       })
-      .catch(e => {
-        console.log(e);
-      });
-    console.log(items.data);
+      .catch(e => {});
     return items.data;
   }
 };

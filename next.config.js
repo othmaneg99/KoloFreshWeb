@@ -8,4 +8,7 @@ module.exports = {
       },
     ];
   },
+  images: {
+    domains: ['th.bing.com', 'upload.wikimedia.org', 'kolofresh.ma'],
+  },
 };

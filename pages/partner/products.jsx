@@ -1,76 +1,52 @@
-import Head from 'next/head';
-import Footer from '@components/footer/footer.component';
+import React, { useState, useEffect } from 'react';
 import st from '/styles/partnerProducts.module.scss';
-import Button from '@mui/material/Button';
 import ButtonRed from '@components/button/buttonRed.component';
 import { Box } from '@mui/system';
 import { Stack } from '@mui/material';
 import { Pagination } from '@mui/material';
 import Image from 'next/image';
 import plante from '@assets/images/plante.svg';
-import bastilla from '@assets/images/bastilla.svg';
-import tl from '@assets/images/tl.webp';
-import tp from '@assets/images/tp.jpg';
-import cl from '@assets/images/cl.jpg';
 import SideBar from '@components/sideBar/sideBar.component';
 import ProductCard from '@components/productCard/productCard.component';
-const baseURL = 'http://localhost:3005';
 import Request from '../../Request/request';
-import React, { Component } from 'react';
-let request = new Request({});
-export default function PartnerProducts() {
-  var [prodArray, setArr] = React.useState([]);
-  var [shop, SetShop] = React.useState([]);
-  async function onSearch(name) {
-    const response = await request
-      .get(baseURL + '/prod', { filters: { isRemoved: false, name: name } })
-      .then(response => {
-        //setArr(response);
-        console.log(response);
-      })
-      .catch(error => {
-        //return error.message;
-      });
-  }
-  React.useEffect(() => {
-    async function getProduct() {
-      const response = await request
-        .get(baseURL + '/prod', { filters: { isRemoved: false, idShop: '61dcd805a325bf490d036a0d' } })
-        .then(response => {
-          setArr(response);
-          return response;
-        })
-        .catch(error => {
-          return error.message;
-        });
-    }
-    async function getShop() {
-      const response = await request
-        .get(baseURL + '/shop', { filters: { _id: '61dcd805a325bf490d036a0d' } })
-        .then(response => {
-          SetShop(response);
-          console.log(response);
-          return response;
-        })
-        .catch(error => {
-          return error.message;
-        });
-    }
-    getProduct();
-    getShop();
-  }, []);
+import { API_URL } from 'config';
 
-  console.log(prodArray);
-  console.log(shop);
+let request = new Request({});
+
+export default function PartnerProducts() {
+  var [searchName, setSearchName] = useState('');
+  var [products, setProducts] = useState([]);
+  var [shop, setShop] = useState({});
+
+  async function getProducts(name) {
+    const response = await request.get(API_URL + '/prod', {
+      idShop: '61dcd805a325bf490d036a0d',
+      filters: { isRemoved: false, ...(name && { name }) },
+    });
+
+    console.log(response);
+
+    if (Array.isArray(response)) {
+      setProducts(response);
+    } else {
+      setProducts([response]);
+    }
+  }
+
+  async function getShop() {
+    const response = await request.get(API_URL + '/shop', { filters: { _id: '61dcd805a325bf490d036a0d' } });
+    setShop(response);
+  }
+
+  useEffect(() => {
+    getShop();
+    getProducts();
+  }, []);
 
   const style = {
     btnAddProd: {
       height: '78px',
     },
-  };
-
-  const theme = {
-    spacing: 10,
   };
 
   return (
@@ -93,19 +69,21 @@ export default function PartnerProducts() {
               <input
                 className={st.searchInput}
                 placeholder='Chercher un produit'
+                value={searchName}
                 onChange={event => {
-                  onSearch(event.target.value);
+                  setSearchName(event.target.value);
+                  getProducts(event.target.value);
                 }}
               />
 
-              <Box component='span' sx={{ ml: 20 }}>
+              <Box component='span' style={{ marginLeft: 'auto' }}>
                 <ButtonRed style={style.btnAddProd}>Ajouter un produit</ButtonRed>
               </Box>
             </div>
 
             <div className={st.allProducts}>
-              {prodArray.map(e => {
-                return <ProductCard obj={e} key={e._id} />;
+              {products.map(p => {
+                return <ProductCard product={p} key={p._id} />;
               })}
             </div>
 
