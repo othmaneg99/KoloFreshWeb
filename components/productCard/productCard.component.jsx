@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 import Image from 'next/image';
 import st from '/styles/partnerProducts.module.scss';
-import bastilla from '@assets/images/bastilla.svg';
 
 export default function ProductCard(props){
 
@@ -15,17 +14,17 @@ export default function ProductCard(props){
                 <Image
                 className={st.prodImg}
                 src={props.prodArray.image}
-                height={138} width={179} 
+                height={118} width={159} 
                 alt=''
                 />
             </div>
 
             <div>
                 <div>
-                <p className={st.prodName} style={{ marginBottom: '10px' }}>
+                <p className={st.prodName} style={{ marginBottom: '5px' }}>
                     {props.prodArray.titre}
                 </p>
-                <p className={st.prodDescr} style={{ marginBottom: '10px', marginTop: '5px', marginLeft: '10px' }}>
+                <p className={st.prodDescr} style={{ marginBottom: '5px', marginTop: '5px', marginLeft: '10px' }}>
                     {props.prodArray.description}
                 </p>
                 </div>
