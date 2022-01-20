@@ -138,7 +138,7 @@ export default function Partner() {
           <Image src={step3} alt='step 3' />
           <Image src={done} alt='step done' />
           <h1>
-            Félicitations {nom} {prenom} !
+            Félicitations {nom} {prenom} {tel} {mail}!
           </h1>
           <p className={styles.paragraph}>
             Votre inscription a bien été prise en compte. Vous serez contacté par
