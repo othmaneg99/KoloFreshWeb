@@ -8,7 +8,7 @@ export default function AdminSideBar() {
       <a href='/' className={st.pagesButtons}>
         <Image src={logo} alt='logo' width='170' />
       </a>
-      <div style={{ paddingTop: '50%', height: '50%' }}>
+      <div style={{ paddingTop: '10%', height: '50%' }}>
         <div className={st.pagesButtonsDiv}>
           <a href='#' className={st.pageButtonActive}>
             SHOPS
@@ -26,8 +26,8 @@ export default function AdminSideBar() {
             PARAMETRES
           </a>
           <a href='#' className={st.signOutBtn}>
-            <Image width={'18px'} height={'18px'} src={logout} />
-            <p style={{ display: 'inline', marginTop: '50px' }}> Se déconnecter </p>
+            <Image width={'18px'} height={'25px'} src={logout} alt='' />
+            <span style={{ display: 'inline', marginTop: '50px' }}> Se déconnecter </span>
           </a>
         </div>
       </div>
