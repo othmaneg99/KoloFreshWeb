@@ -1,7 +1,3 @@
-.container {
-  // margin-left: 320px;
-  // margin-right: 50px;
-}
 
 .welcomeText {
   font-family: Arial, Helvetica, sans-serif;
@@ -47,7 +43,7 @@
 
   display: block;
 
-  padding: 18px;
+  padding: 15px;
 
   background: linear-gradient(0deg, #cbdfd7, #cbdfd7), linear-gradient(0deg, #676767, #676767), #676767;
 }
@@ -64,8 +60,6 @@
   display: block;
 
   border-radius: 0px;
-
-  padding: 23px;
 
   background: linear-gradient(0deg, #cbdfd7, #cbdfd7), linear-gradient(0deg, #676767, #676767), #676767;
 }
@@ -129,8 +123,8 @@
 }
 
 .sideBar {
-  width: 290px;
-
+  
+  width: 27%;
   height: 100vh;
 
   left: 0;
