@@ -1,0 +1,42 @@
+.titles {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 26px;
+  
+    white-space: nowrap;
+    color: #00643C;
+  }
+
+  .inputStyle{
+      
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    height: 60px;
+    width: 100%;
+    left: 0px;
+    top: 40px;
+
+    border: 2px solid #E4E8EF;
+    border-radius: 20px;
+    
+  }
+
+  .btnSave {
+
+    float: right;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0em;
+    height: fit-content;
+    margin-top: 33px;
+    margin-bottom: 33px;
+  
+    background: rgba(0, 100, 60, 0.5);
+    border-radius: 7px;
+  
+    color: #ffffff;
+  }
