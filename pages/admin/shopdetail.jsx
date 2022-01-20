@@ -1,7 +1,7 @@
 import AdminSideBar from '@components/sideBarAdmin/sideBarAdmin.component.jsx';
 import style from '/styles/shopDetail.module.scss';
 import st from '/styles/partnerProducts.module.scss';
-import * as React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Grid } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
@@ -10,8 +10,28 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Button } from '@mui/material';
+import { Box } from '@mui/system';
+import { Chip } from '@mui/material';
 
 export default function AdminShops() {
+
+  const categories = [
+    { id: 0, name: 'Salés' },
+    { id: 1, name: 'Sucrés' },
+    { id: 2, name: 'Mixte' },
+  ];
+
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const onCategoriesChange = event => {
+    const {
+      target: { value },
+    } = event;
+    setSelectedCategories(
+      // On autofill we get a stringified value.
+      typeof value === 'string' ? value.split(',') : value,
+    );
+  };
 
   return (
     <div className={st.container}>
@@ -88,22 +108,23 @@ export default function AdminShops() {
                 <FormControl sx={{ m: 1, width: 300, mt: 3 }}>
                   <Select
                     displayEmpty
-                   
+                    onChange={onCategoriesChange}
+                    multiple
+                    value={selectedCategories}
                     inputProps={{ 'aria-label': 'Without label' }}
+                    renderValue={selected => (
+                      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                        {selected.map(value => (
+                          <Chip key={value} label={value} />
+                        ))}
+                      </Box>
+                    )}
                   >
-                    <MenuItem disabled value="">
-                      <em>Placeholder</em>
-                    </MenuItem>
-                      <MenuItem>
-                        Sucré
+                    {categories.map(c => (
+                      <MenuItem key={c.id} value={c.name}>
+                        {c.name}
                       </MenuItem>
-                      <MenuItem>
-                        Salé
-                      </MenuItem>
-                      <MenuItem>
-                        Mixte
-                      </MenuItem>
-                    ))
+                    ))}
                   </Select>
                 </FormControl>
 
