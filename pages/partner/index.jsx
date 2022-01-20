@@ -21,6 +21,7 @@ export default function Partner() {
   const [tel, setTel] = useState('');
 
   function onAddButtonClick(e) {
+    const nameRegex = /^[a-zA-Z\-]+$/;
     e.preventDefault();
     if (step === 1) {
       if (nom.trim() === '' || prenom.trim() === '') {
@@ -36,6 +37,9 @@ export default function Partner() {
       } else {
         setStep(3);
       }
+    }
+    if (step == 3) {
+      setStep(4);
     }
   }
 
@@ -138,7 +142,7 @@ export default function Partner() {
           <Image src={step3} alt='step 3' />
           <Image src={done} alt='step done' />
           <h1>
-            Félicitations {nom} {prenom} !
+            Félicitations {nom} {prenom} {tel} {mail}!
           </h1>
           <p className={styles.paragraph}>
             Votre inscription a bien été prise en compte. Vous serez contacté par
