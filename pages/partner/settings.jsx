@@ -41,7 +41,7 @@ export default function PartnerSettings() {
   return (
     <body>
       <div className={st.spread}>
-        <SideBar />
+        <SideBar activePage={4} />
 
         <Container className={st.parentDiv}>
           <h1 style={style.heading}>Informations personnelles : </h1>

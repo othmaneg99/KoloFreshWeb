@@ -3,7 +3,7 @@ import logo from '@assets/images/LOGO.png';
 import logout from '@assets/images/logout.png';
 import Image from 'next/image';
 
-export default function SideBar() {
+export default function SideBar(props) {
   return (
     <div className={st.sideBar}>
       <a href='/' className={st.pagesButtons}>
@@ -12,22 +12,22 @@ export default function SideBar() {
 
       <div style={{ paddingTop: '10%' }}>
         <div className={st.pagesButtonsDiv}>
-          <a href='#' className={st.pageButtonActive}>
+          <a href='#' className={props.activePage == 1 ? st.pageButtonActive : st.pagesButtons}>
             Produits
           </a>
-          <a href='#' className={st.pagesButtons}>
+          <a href='#' className={props.activePage == 2 ? st.pageButtonActive : st.pagesButtons}>
             Commandes
           </a>
-          <a href='#' className={st.pagesButtons}>
+          <a href='#' className={props.activePage == 3 ? st.pageButtonActive : st.pagesButtons}>
             Statistiques
           </a>
-          <a href='#' className={st.pagesButtons}>
+          <a href='#' className={props.activePage == 4 ? st.pageButtonActive : st.pagesButtons}>
             Paramètres
           </a>
-          <a href='#' className={st.pagesButtons}>
+          <a href='#' className={props.activePage == 5 ? st.pageButtonActive : st.pagesButtons}>
             Shop
           </a>
-          <a href='#' className={st.pagesButtons}>
+          <a href='#' className={props.activePage == 6 ? st.pageButtonActive : st.pagesButtons}>
             Aide
           </a>
           <a href='#' className={st.signOutBtn}>

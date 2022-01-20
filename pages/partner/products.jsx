@@ -47,7 +47,7 @@ export default function PartnerProducts() {
     <body>
       <div className={st.container}>
         <div className={st.spread}>
-          <SideBar />
+          <SideBar activePage={1} />
 
           <div className={st.parentDiv}>
             <div className={st.planteDiv} style={{ right: '0', position: 'absolute', top: '-15px' }}>
