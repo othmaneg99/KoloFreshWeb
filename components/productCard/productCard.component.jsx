@@ -12,7 +12,6 @@ export default function ProductCard(props){
 
             <div className={st.prodImgDiv}>
                 <Image
-                className={st.prodImg}
                 src={props.prodArray.image}
                 height={118} width={159} 
                 alt=''

@@ -49,7 +49,7 @@ export default function PartnerProducts() {
         <div className={st.spread}>
           <SideBar />
 
-          <div className={st.parentDiv} style={{ position: 'relative' }}>
+          <div className={st.parentDiv}>
             <div className={st.planteDiv} style={{ right: '0', position: 'absolute', top: '-15px' }}>
               <Image className={st.plante} src={plante} height={131} width={109} alt='' />
             </div>

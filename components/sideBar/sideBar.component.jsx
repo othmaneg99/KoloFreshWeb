@@ -39,7 +39,7 @@ export default function SideBar(){
                     
          
                     <Image  width={"18px"} height={"18px"} src={logout}/>
-                   <p style={{display:"inline"}}>  Se déconnecter </p>
+                   <p style={{display:"inline", marginTop:"50px"}}>  Se déconnecter </p>
                 
                 </a>
                 

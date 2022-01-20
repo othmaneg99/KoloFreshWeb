@@ -28,9 +28,12 @@
 }
 
 .parentDiv {
+  position: 'relative';
+  width:100%;
+  margin-right:30px;
+  margin-left:30px;
   display: flex;
   flex-direction: column;
-  margin-left: 66px;
 }
 
 .pagesButtons {
@@ -76,7 +79,6 @@
   color: #263238;
 
   text-align: center;
-  width: 260px;
 }
 
 .plante {
@@ -91,14 +93,13 @@
 }
 
 .sideBar {
-  width: 260px;
+  width: 25%;
 
   height: 100vh;
 
   left: 0;
   top: 0;
 
-  border-radius: 0px;
   position: sticky;
 
   background: #cbdfd7;
@@ -145,18 +146,12 @@
   border-radius: 30px;
 }
 
-.prodImg {
-  height: 138px;
-  width: 179px;
-  border-radius: 0px;
-}
 
 .prodImgDiv {
   margin: 20px;
 }
 
 .prodName {
-  width: 295.5379638671875px;
 
   font-family: Poppins;
   font-style: normal;
@@ -166,7 +161,6 @@
 }
 
 .prodDescr {
-  width: 295.5379638671875px;
 
   font-family: Poppins;
   font-style: normal;
@@ -178,9 +172,6 @@
 }
 
 .prodPrice {
-  height: 69.37983703613281px;
-  width: 295.5379638671875px;
-
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
