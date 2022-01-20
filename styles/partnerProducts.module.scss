@@ -25,14 +25,21 @@
 
 .parentDiv {
   position: 'relative';
-  width:100%;
-  margin-right:30px;
-  margin-left:30px;
+  width: 100%;
+  margin-right: 30px;
+  margin-left: 30px;
   display: flex;
   flex-direction: column;
 }
 
 .pagesButtons {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #263238;
 
   display: block;
 
@@ -41,12 +48,37 @@
   background: linear-gradient(0deg, #cbdfd7, #cbdfd7), linear-gradient(0deg, #676767, #676767), #676767;
 }
 
+.pagesButtons {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #263238;
+
+  display: block;
+
+  border-radius: 0px;
+
+  padding: 23px;
+
+  background: linear-gradient(0deg, #cbdfd7, #cbdfd7), linear-gradient(0deg, #676767, #676767), #676767;
+}
 
 .signOutBtn {
-
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  color: #263238;
+  text-align: center;
   left: 0;
   right: 0;
-  
+  left: 0;
+  right: 0;
+
   position: absolute;
 
   bottom: 0;
@@ -54,10 +86,15 @@
   border-radius: 0px;
 
   padding: 18px;
-
 }
 
 .pageButtonActive {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0em;
+  color: #263238;
 
   display: block;
 
@@ -67,7 +104,6 @@
 }
 
 .pagesButtonsDiv {
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 23px;
   font-style: normal;
@@ -96,6 +132,8 @@
   left: 0;
   top: 0;
 
+  border-radius: 0px;
+
   position: sticky;
 
   background: #cbdfd7;
@@ -123,7 +161,6 @@
 }
 
 .searchDiv {
-
   font-size: 34px;
 }
 
@@ -132,7 +169,6 @@
 }
 
 .prodCard {
-
   position: relative;
   height: 160px;
 
@@ -142,13 +178,11 @@
   border-radius: 30px;
 }
 
-
 .prodImgDiv {
   margin: 20px;
 }
 
 .prodName {
-
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
@@ -157,7 +191,6 @@
 }
 
 .prodDescr {
-
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;

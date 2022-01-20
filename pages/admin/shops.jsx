@@ -4,6 +4,7 @@ import cupcake from '@assets/images/cupcake.svg';
 import sale from '@assets/images/sale.svg';
 import mixte from '@assets/images/mixte.svg';
 import Image from 'next/image';
+import Pagination from '@mui/material/Pagination';
 export default function AdminShops() {
   return (
     <div className={styles.container}>
@@ -33,21 +34,39 @@ export default function AdminShops() {
         </div>
         <div className={styles.tableContainer}>
           <table className={styles.table}>
-            <tr>
-              <th>Nom shop</th>
-              <th>Catégorie</th>
-              <th>Date de Création</th>
-            </tr>
+            <th>Nom shop</th>
+            <th>Catégorie</th>
+            <th>Date de Création</th>
+            <th></th>
 
             <tr>
               <td>Cuisine Samia</td>
-              <td>SUCRES</td>
-              <td>20/1/2022</td>
+              <td className={styles.light}>SUCRES</td>
+              <td className={styles.light}>20/1/2022</td>
+              <td>
+                <a href=''>Voir</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Cuisine Samia</td>
+              <td className={styles.light}>SUCRES</td>
+              <td className={styles.light}>20/1/2022</td>
+              <td>
+                <a href=''>Voir</a>
+              </td>
+            </tr>
+            <tr>
+              <td>Cuisine Samia</td>
+              <td className={styles.light}>SUCRES</td>
+              <td className={styles.light}>20/1/2022</td>
               <td>
                 <a href=''>Voir</a>
               </td>
             </tr>
           </table>
+        </div>
+        <div className={styles.pagination}>
+          <Pagination count={10} />
         </div>
       </div>
     </div>

@@ -1,9 +1,14 @@
 import st from '/styles/partnerProducts.module.scss';
-
+import Image from 'next/image';
+import logo from '@assets/images/logo.svg';
+import logout from '@assets/images/logout.png';
 export default function AdminSideBar() {
   return (
     <div className={st.sideBar}>
-      <div style={{ paddingTop: '50%', height: '50%' }}>
+      <a href='/' className={st.pagesButtons}>
+        <Image src={logo} alt='logo' width='170' />
+      </a>
+      <div style={{ paddingTop: '10%', height: '50%' }}>
         <div className={st.pagesButtonsDiv}>
           <a href='#' className={st.pageButtonActive}>
             SHOPS
@@ -21,7 +26,8 @@ export default function AdminSideBar() {
             PARAMETRES
           </a>
           <a href='#' className={st.signOutBtn}>
-            Se déconnecter
+            <Image width={'18px'} height={'25px'} src={logout} alt='' />
+            <span style={{ display: 'inline', marginTop: '50px' }}> Se déconnecter </span>
           </a>
         </div>
       </div>
