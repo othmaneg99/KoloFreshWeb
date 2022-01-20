@@ -84,7 +84,7 @@ export default function PartnerSettings() {
               </Grid>
               <Grid item xs={9}>
                 <FormControl sx={{ width: '100%' }}>
-                  <InputLabel id='demo-multiple-chip-label'>Catégorie</InputLabel>
+                  <InputLabel id='demo-multiple-chip-label'>Catégories</InputLabel>
                   <Select
                     labelId='demo-multiple-chip-label'
                     id='demo-multiple-chip'
@@ -92,7 +92,7 @@ export default function PartnerSettings() {
                     value={selectedCategories}
                     style={style.categoriesDropdown}
                     onChange={onCategoriesChange}
-                    input={<OutlinedInput id='select-multiple-chip' label='Catégorie' />}
+                    input={<OutlinedInput id='select-multiple-chip' label='Catégories' />}
                     renderValue={selected => (
                       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                         {selected.map(value => (
