@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import Footer from '@components/footer/footer.component';
+import React, { useState } from 'react';
 import st from '/styles/partnerProducts.module.scss';
 import Button from '@mui/material/Button';
 import ButtonRed from '@components/button/buttonRed.component';
@@ -13,10 +12,19 @@ import tl from '@assets/images/tl.webp';
 import tp from '@assets/images/tp.jpg';
 import cl from '@assets/images/cl.jpg';
 import SideBar from '@components/sideBar/sideBar.component';
-
-
+import ProductCard from '@components/productCard/productCard.component';
+import AddProduct from '@components/product/addProduct.component';
 
 export default function PartnerProducts() {
+  const [showAddProductModal, setShowAddProductModal] = useState(false);
+
+  var prodArray = [
+    { titre: 'BASTILLA AUX POISSONS', description: 'Description du produit', prix: 150, image: bastilla },
+    { titre: 'TAJINE AUX LÉGUMES', description: 'Description du produit', prix: 50, image: tl },
+    { titre: 'TAJINE AU POULET', description: 'Description du produit', prix: 90, image: tp },
+    { titre: 'COUSCOUS MAROCAIN', description: 'Description du produit', prix: 45, image: cl },
+  ];
+
   const style = {
     btnAddProd: {
       height: '78px',
@@ -27,24 +35,25 @@ export default function PartnerProducts() {
     spacing: 10,
   };
 
+  const onAddProductClick = () => {
+    setShowAddProductModal(true);
+  };
+
+  const onAddProductClose = () => {
+    setShowAddProductModal(false);
+  };
+
   return (
-
     <body>
-    <div className={st.container} >
-
+      <div className={st.container}>
         <div className={st.spread}>
+          <SideBar />
 
-          <SideBar/>
+          <div className={st.parentDiv} style={{ position: 'relative' }}>
+            <div className={st.planteDiv} style={{ right: '0', position: 'absolute', top: '-15px' }}>
+              <Image className={st.plante} src={plante} height={131} width={109} alt='' />
+            </div>
 
-          <div className={st.parentDiv} style={{position:'relative'}}>
-            
-          <div className={st.planteDiv} style={{right:'0', position:'absolute', top: "-15px"}}>
-            <Image
-              className={st.plante}
-              src={plante} height={131} width={109} 
-              alt=''
-            />
-          </div>
             <div className={st.spread}>
               <p className={st.welcomeText}>Bienvenu</p>
               <p className={st.userName}>Cuisine SAMIA</p>
@@ -54,174 +63,26 @@ export default function PartnerProducts() {
               <input className={st.searchInput} placeholder='Chercher un produit' />
 
               <Box component='span' sx={{ ml: 20 }}>
-                <ButtonRed style={style.btnAddProd}>Ajouter un produit</ButtonRed>
+                <ButtonRed style={style.btnAddProd} onClick={onAddProductClick}>
+                  Ajouter un produit
+                </ButtonRed>
               </Box>
             </div>
 
             <div className={st.allProducts}>
-
-              <div className={st.prodCard}>
-
-                <div className={st.spread}>
-
-                  <div className={st.prodImgDiv}>
-                    <Image
-                      className={st.prodImg}
-                      src={bastilla}
-                      height={138} width={179} 
-                      alt=''
-                    />
-                  </div>
-
-                  <div>
-                    <div>
-                      <p className={st.prodName} style={{ marginBottom: '10px' }}>
-                        BASTILLA AUX POISSONS
-                      </p>
-                      <p className={st.prodDescr} style={{ marginBottom: '10px', marginTop: '5px', marginLeft: '10px' }}>
-                        Description du produit
-                      </p>
-                    </div>
-
-                    <div className={st.actionButtons}>
-                      <Button className={st.btnDesac} variant='contained'>
-                        Désactiver
-                      </Button>
-                      <Button className={st.btnDelete} variant='contained'>
-                        Supprimer
-                      </Button>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className={st.prodPrice}>150 DH</p>
-                  </div>
-
-                </div>
-
-              </div>
-
-                <div className={st.prodCard}>
-
-                  <div className={st.spread}>
-                    <div className={st.prodImgDiv}>
-                    <Image
-                      className={st.prodImg}
-                      src={tl}
-                      height={138} width={179} 
-                      alt=''
-                    />
-                    </div>
-
-                    <div>
-                      <div>
-                        <p className={st.prodName} style={{ marginBottom: '10px' }}>
-                          TAJINE AUX LÉGUMES
-                        </p>
-                        <p className={st.prodDescr} style={{ marginBottom: '10px', marginTop: '5px', marginLeft: '10px' }}>
-                          Description du produit
-                        </p>
-                      </div>
-
-                      <div className={st.actionButtons}>
-                        <Button className={st.btnDesac} variant='contained'>
-                          Désactiver
-                        </Button>
-                        <Button className={st.btnDelete} variant='contained'>
-                          Supprimer
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className={st.prodPrice}>50 DH</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={st.prodCard}>
-                  <div className={st.spread}>
-                    <div className={st.prodImgDiv}>
-                      {<Image
-                        className={st.prodImg}
-                        src={tp}
-                        alt=''
-                        height={138} width={179} 
-                      />}
-                    </div>
-
-                    <div>
-                      <div>
-                        <p className={st.prodName} style={{ marginBottom: '10px' }}>
-                          TAJINE AU POULET
-                        </p>
-                        <p className={st.prodDescr} style={{ marginBottom: '10px', marginTop: '5px', marginLeft: '10px' }}>
-                          Description du produit
-                        </p>
-                      </div>
-
-                      <div className={st.actionButtons}>
-                        <Button className={st.btnDesac} variant='contained'>
-                          Désactiver
-                        </Button>
-                        <Button className={st.btnDelete} variant='contained'>
-                          Supprimer
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className={st.prodPrice}>80 DH</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={st.prodCard}>
-                  <div className={st.spread}>
-                    <div className={st.prodImgDiv}>
-                      { <Image
-                        className={st.prodImg}
-                        src={cl}
-                        height={138} width={179} 
-                        alt=''
-                      />}
-                    </div>
-
-                    <div>
-                      <div>
-                        <p className={st.prodName} style={{ marginBottom: '10px' }}>
-                          COUSCOUS MAROCAIN
-                        </p>
-                        <p className={st.prodDescr} style={{ marginBottom: '10px', marginTop: '5px', marginLeft: '10px' }}>
-                          Description du produit
-                        </p>
-                      </div>
-
-                      <div className={st.actionButtons}>
-                        <Button className={st.btnDesac} variant='contained'>
-                          Désactiver
-                        </Button>
-                        <Button className={st.btnDelete} variant='contained'>
-                          Supprimer
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className={st.prodPrice}>45 DH</p>
-                    </div>
-                  </div>
-
-                  <Stack alignItems='center' spacing={2}>
-                    <Pagination style={{ margin: '35px', marginTop: '80px' }} count={10} shape='rounded' />
-                  </Stack>
-                </div>
-              </div>
+              <ProductCard prodArray={prodArray[0]} />
+              <ProductCard prodArray={prodArray[1]} />
+              <ProductCard prodArray={prodArray[2]} />
+              <ProductCard prodArray={prodArray[3]} />
             </div>
-          </div>
-          
-        </div>
 
+            <Stack alignItems='center' spacing={2}>
+              <Pagination style={{ margin: '35px', marginTop: '80px' }} count={10} shape='rounded' />
+            </Stack>
+          </div>
+        </div>
+      </div>
+      <AddProduct open={showAddProductModal} onClose={onAddProductClose} />
     </body>
   );
 }
