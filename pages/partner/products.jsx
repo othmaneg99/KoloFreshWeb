@@ -19,12 +19,9 @@ export default function PartnerProducts() {
   var [shop, setShop] = useState({});
 
   async function getProducts(name) {
-    const response = await request.get(API_URL + '/prod', {
-      idShop: '61dcd805a325bf490d036a0d',
-      filters: { isRemoved: false, ...(name && { name }) },
+    const response = await request.get(API_URL + '/prod/search', {
+      filters: { idShop: '61dcd805a325bf490d036a0d', isRemoved: false, name: name },
     });
-
-    console.log(response);
 
     if (Array.isArray(response)) {
       setProducts(response);
@@ -40,7 +37,7 @@ export default function PartnerProducts() {
 
   useEffect(() => {
     getShop();
-    getProducts();
+    getProducts('');
   }, []);
 
   const style = {
