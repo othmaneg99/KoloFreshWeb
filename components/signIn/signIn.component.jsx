@@ -2,7 +2,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Request from '../../tools/Request';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const style = {
   position: 'absolute',
@@ -25,6 +26,7 @@ const baseURL = 'http://localhost:3005/auth';
 let request = new Request({});
 
 export default function SignIn({ open, close }) {
+  const [error, setError] = useState('');
   const [data, setData] = useState({
     userName: '',
     password: '',
@@ -34,7 +36,7 @@ export default function SignIn({ open, close }) {
   const [user, setUser] = useState({
     token: '',
     user: {},
-    isLoggedIn: '',
+    isLoggedIn: false,
   });
 
   function handle(e) {
@@ -43,7 +45,7 @@ export default function SignIn({ open, close }) {
     setData(newData);
     console.log(newData);
   }
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   async function submit(e) {
     e.preventDefault();
     const response = await request
@@ -60,18 +62,35 @@ export default function SignIn({ open, close }) {
         return error.message;
       });
 
-    if (response) setUser({ user: response.user, token: response.token, isLoggedIn: true });
-    else setUser({ isLoggedIn: false });
+    if (response) {
+      setUser({ user: response.user, token: response.token, isLoggedIn: true });
+      setIsLoggedIn(true);
+    } else setUser({ isLoggedIn: false });
     console.log(user.isLoggedIn);
   }
+  const router = useRouter();
+  const handleClick = () => {
+    if (!user.isLoggedIn) {
+      setError('Login ou mot de passe incorrect');
+    } else {
+      router.push('/partner/products');
+    }
+  };
 
   return (
     <div>
-      <Modal open={open} onClose={close} aria-labelledby='modal-modal-title' aria-describedby='modal-modal-description'>
+      <Modal
+        isLoggedIn={user.isLoggedIn}
+        open={open}
+        onClose={close}
+        aria-labelledby='modal-modal-title'
+        aria-describedby='modal-modal-description'
+      >
         <Box sx={style}>
           <form action='' onSubmit={e => submit(e)} className='signUpForm'>
             <h2 className='connect'>SE CONNECTER</h2>
             <span> </span>
+            {error}
             <input
               className='input'
               type='email'
@@ -102,7 +121,9 @@ export default function SignIn({ open, close }) {
               </label>
             </div>
 
-            <button className='btn btnConnect'>SE CONNECTER</button>
+            <button className='btn btnConnect' onClick={handleClick}>
+              SE CONNECTER
+            </button>
             <button className='btn btnCreateAccount'>CREER UN COMPTE</button>
           </form>
         </Box>

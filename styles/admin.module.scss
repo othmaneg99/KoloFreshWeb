@@ -106,3 +106,13 @@
   flex-direction: row;
   justify-content: center;
 }
+.demandeHeader {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  margin: 50px;
+  a {
+    padding: 5px;
+  }
+  justify-content: space-between;
+}
