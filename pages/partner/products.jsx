@@ -10,10 +10,12 @@ import SideBar from '@components/sideBar/sideBar.component';
 import ProductCard from '@components/productCard/productCard.component';
 import Request from '../../Request/request';
 import { API_URL } from 'config';
+import AddProduct from '@components/product/addProduct.component';
 
 let request = new Request({});
 
 export default function PartnerProducts() {
+  const [showAddProductModal, setShowAddProductModal] = useState(false);
   var [searchName, setSearchName] = useState('');
   var [products, setProducts] = useState([]);
   var [shop, setShop] = useState({});
@@ -46,50 +48,59 @@ export default function PartnerProducts() {
     },
   };
 
+  const onAddProductClick = () => {
+    setShowAddProductModal(true);
+  };
+
+  const onAddProductClose = () => {
+    setShowAddProductModal(false);
+  };
+
   return (
-    <body>
-      <div className={st.container}>
-        <div className={st.spread}>
-          <SideBar />
+    <div className={st.container}>
+      <div className={st.spread}>
+        <SideBar activePage={1} />
 
-          <div className={st.parentDiv} style={{ position: 'relative' }}>
-            <div className={st.planteDiv} style={{ right: '0', position: 'absolute', top: '-15px' }}>
-              <Image className={st.plante} src={plante} height={131} width={109} alt='' />
-            </div>
-
-            <div className={st.spread}>
-              <p className={st.welcomeText}>Bienvenu</p>
-              <p className={st.userName}>{shop.name}</p>
-            </div>
-
-            <div className={st.spread}>
-              <input
-                className={st.searchInput}
-                placeholder='Chercher un produit'
-                value={searchName}
-                onChange={event => {
-                  setSearchName(event.target.value);
-                  getProducts(event.target.value);
-                }}
-              />
-
-              <Box component='span' style={{ marginLeft: 'auto' }}>
-                <ButtonRed style={style.btnAddProd}>Ajouter un produit</ButtonRed>
-              </Box>
-            </div>
-
-            <div className={st.allProducts}>
-              {products.map(p => {
-                return <ProductCard product={p} key={p._id} />;
-              })}
-            </div>
-
-            <Stack alignItems='center' spacing={2}>
-              <Pagination style={{ margin: '35px', marginTop: '80px' }} count={10} shape='rounded' />
-            </Stack>
+        <div className={st.parentDiv} style={{ position: 'relative' }}>
+          <div className={st.planteDiv} style={{ right: '0', position: 'absolute', top: '-15px' }}>
+            <Image className={st.plante} src={plante} height={131} width={109} alt='' />
           </div>
+
+          <div className={st.spread}>
+            <p className={st.welcomeText}>Bienvenu</p>
+            <p className={st.userName}>{shop.name}</p>
+          </div>
+
+          <div className={st.spread}>
+            <input
+              className={st.searchInput}
+              placeholder='Chercher un produit'
+              value={searchName}
+              onChange={event => {
+                setSearchName(event.target.value);
+                getProducts(event.target.value);
+              }}
+            />
+
+            <Box component='span' style={{ marginLeft: 'auto' }}>
+              <ButtonRed style={style.btnAddProd} onClick={onAddProductClick}>
+                Ajouter un produit
+              </ButtonRed>
+            </Box>
+          </div>
+
+          <div className={st.allProducts}>
+            {products.map(p => {
+              return <ProductCard product={p} key={p._id} />;
+            })}
+          </div>
+
+          <Stack alignItems='center' spacing={2}>
+            <Pagination style={{ margin: '35px', marginTop: '80px' }} count={10} shape='rounded' />
+          </Stack>
         </div>
       </div>
-    </body>
+      <AddProduct open={showAddProductModal} onClose={onAddProductClose} />
+    </div>
   );
 }
