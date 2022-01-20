@@ -19,7 +19,7 @@ export default function ProductCard(props) {
 
           <div className={st.actionButtons}>
             <Button className={st.btnDesac} variant='contained'>
-              Désactiver
+              {props.product.isActivated ? 'Désactiver' : 'Activer'}
             </Button>
             <Button className={st.btnDelete} variant='contained'>
               Supprimer
