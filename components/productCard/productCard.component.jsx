@@ -1,7 +1,6 @@
 import Button from '@mui/material/Button';
 import Image from 'next/image';
 import st from '/styles/partnerProducts.module.scss';
-import bastilla from '@assets/images/bastilla.svg';
 
 export default function ProductCard(props) {
   return (
@@ -18,7 +17,7 @@ export default function ProductCard(props) {
           </div>
 
           <div className={st.actionButtons}>
-            <Button className={st.btnDesac} variant='contained'>
+            <Button className={st.btnDesac} variant='contained' onClick={props.toggleProductStatus}>
               {props.product.isActivated ? 'Désactiver' : 'Activer'}
             </Button>
             <Button className={st.btnDelete} variant='contained'>

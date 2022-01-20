@@ -56,6 +56,10 @@ export default function PartnerProducts() {
     setShowAddProductModal(false);
   };
 
+  const toggleProductStatus = product => {
+    // 7ati function dyalek hna
+  };
+
   return (
     <div className={st.container}>
       <div className={st.spread}>
@@ -91,7 +95,7 @@ export default function PartnerProducts() {
 
           <div className={st.allProducts}>
             {products.map(p => {
-              return <ProductCard product={p} key={p._id} />;
+              return <ProductCard product={p} key={p._id} toggleProductStatus={toggleProductStatus(p)} />;
             })}
           </div>
 
