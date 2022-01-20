@@ -26,5 +26,6 @@
     "eslint-config-next": "11.1.2",
     "eslint-plugin-import": "^2.25.3",
     "prettier": "2.5.1"
-  }
+  },
+  "proxy": "http://localhost:3005/"
 }

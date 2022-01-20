@@ -1,6 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Request from '../../tools/Request';
+import React, { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -19,16 +21,76 @@ const style = {
   borderRadius: '30px',
 };
 
+const baseURL = 'http://localhost:3005/auth';
+let request = new Request({});
+
 export default function SignIn({ open, close }) {
+  const [data, setData] = useState({
+    userName: '',
+    password: '',
+    role: '',
+  });
+
+  const [user, setUser] = useState({
+    token: '',
+    user: {},
+    isLoggedIn: '',
+  });
+
+  function handle(e) {
+    const newData = { ...data };
+    newData[e.target.id] = e.target.value;
+    setData(newData);
+    console.log(newData);
+  }
+
+  async function submit(e) {
+    e.preventDefault();
+    const response = await request
+      .post(baseURL + '/login', {
+        userName: data.userName,
+        password: data.password,
+        role: 'admin',
+        remmemberMe: false,
+      })
+      .then(response => {
+        return response;
+      })
+      .catch(error => {
+        return error.message;
+      });
+
+    if (response) setUser({ user: response.user, token: response.token, isLoggedIn: true });
+    else setUser({ isLoggedIn: false });
+    console.log(user.isLoggedIn);
+  }
+
   return (
     <div>
       <Modal open={open} onClose={close} aria-labelledby='modal-modal-title' aria-describedby='modal-modal-description'>
         <Box sx={style}>
-          <form action='' className='signUpForm'>
+          <form action='' onSubmit={e => submit(e)} className='signUpForm'>
             <h2 className='connect'>SE CONNECTER</h2>
-            <input className='input' type='email' name='' id='' placeholder='exemple@exemple.ma' />
+            <span> </span>
+            <input
+              className='input'
+              type='email'
+              value={data.userName}
+              name=''
+              onChange={e => handle(e)}
+              id='userName'
+              placeholder='exemple@exemple.ma'
+            />
             <div className='password'>
-              <input className='input' type='password' name='' id='' placeholder='Mot de passe' />
+              <input
+                className='input'
+                value={data.password}
+                type='password'
+                onChange={e => handle(e)}
+                name=''
+                id='password'
+                placeholder='Mot de passe'
+              />
               <a href=''>
                 <p className='motDePasse'>Mot de passe oublié ?</p>
               </a>
