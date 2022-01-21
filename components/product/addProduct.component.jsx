@@ -65,6 +65,12 @@ export default function AddProduct(props) {
                     onChange={event => setImages(event.target.value)}
                   />
                   <Button style={style.fileInputBtn} component='span'></Button>
+                  <div>
+                    <button id='upload_widget'>Upload Files</button>
+                  </div>
+                  <div>
+                    <img id='uploaded' />
+                  </div>
                 </label>
               </Grid>
             </Grid>

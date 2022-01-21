@@ -61,50 +61,60 @@ export default function PartnerProducts() {
   };
 
   return (
-    <div className={st.container}>
-      <div className={st.spread}>
-        <SideBar activePage={1} />
+    <div>
+      <Head>
+        <title>Kolo Fresh</title>
+        <meta name='description' content='Kolo Fresh' />
+        <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'></meta>
+        <link rel='icon' href='/favicon.ico' />
+        <script src='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript'></script>
+        <script src='../../asserts/js/uploadclientwidget.js' type='text/javascript'></script>
+      </Head>
+      <div className={st.container}>
+        <div className={st.spread}>
+          <SideBar activePage={1} />
 
-        <div className={st.parentDiv} style={{ position: 'relative' }}>
-          <div className={st.planteDiv} style={{ right: '0', position: 'absolute', top: '-15px' }}>
-            <Image className={st.plante} src={plante} height={131} width={109} alt='' />
+          <div className={st.parentDiv} style={{ position: 'relative' }}>
+            <div className={st.planteDiv} style={{ right: '0', position: 'absolute', top: '-15px' }}>
+              <Image className={st.plante} src={plante} height={131} width={109} alt='' />
+            </div>
+
+            <div className={st.spread}>
+              <p className={st.welcomeText}>Bienvenu</p>
+              <p className={st.userName}>{shop.name}</p>
+            </div>
+
+            <div className={st.spread}>
+              <input
+                className={st.searchInput}
+                placeholder='Chercher un produit'
+                value={searchName}
+                onChange={event => {
+                  setSearchName(event.target.value);
+                  getProducts(event.target.value);
+                }}
+              />
+
+              <Box component='span' style={{ marginLeft: 'auto' }}>
+                <ButtonRed style={style.btnAddProd} onClick={onAddProductClick}>
+                  Ajouter un produit
+                </ButtonRed>
+              </Box>
+            </div>
+
+            <div className={st.allProducts}>
+              {products.map(p => {
+                return <ProductCard product={p} key={p._id} toggleProductStatus={toggleProductStatus(p)} />;
+              })}
+            </div>
+
+            <Stack alignItems='center' spacing={2}>
+              <Pagination style={{ margin: '35px', marginTop: '80px' }} count={10} shape='rounded' />
+            </Stack>
           </div>
-
-          <div className={st.spread}>
-            <p className={st.welcomeText}>Bienvenu</p>
-            <p className={st.userName}>{shop.name}</p>
-          </div>
-
-          <div className={st.spread}>
-            <input
-              className={st.searchInput}
-              placeholder='Chercher un produit'
-              value={searchName}
-              onChange={event => {
-                setSearchName(event.target.value);
-                getProducts(event.target.value);
-              }}
-            />
-
-            <Box component='span' style={{ marginLeft: 'auto' }}>
-              <ButtonRed style={style.btnAddProd} onClick={onAddProductClick}>
-                Ajouter un produit
-              </ButtonRed>
-            </Box>
-          </div>
-
-          <div className={st.allProducts}>
-            {products.map(p => {
-              return <ProductCard product={p} key={p._id} toggleProductStatus={toggleProductStatus(p)} />;
-            })}
-          </div>
-
-          <Stack alignItems='center' spacing={2}>
-            <Pagination style={{ margin: '35px', marginTop: '80px' }} count={10} shape='rounded' />
-          </Stack>
         </div>
+        <AddProduct open={showAddProductModal} onClose={onAddProductClose} />
       </div>
-      <AddProduct open={showAddProductModal} onClose={onAddProductClose} />
     </div>
   );
 }

@@ -3,6 +3,9 @@ import st from '/styles/partnerSettings.module.scss';
 import SideBar from '@components/sideBar/sideBar.component';
 import { Container, Box, Grid, Button, Select, OutlinedInput, Chip, MenuItem, InputLabel, FormControl } from '@mui/material';
 import InputA from '@components/input/inputA.component';
+import { useRouter } from 'next/router';
+import { API_URL } from 'config';
+import Request from '../../Request/request';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -20,14 +23,17 @@ const categories = [
   { id: 1, name: 'Sucrés' },
   { id: 2, name: 'Mixte' },
 ];
+let request = new Request({});
 
 export default function PartnerSettings() {
-  const [email, setEmail] = useState();
-  const [phone, setPhone] = useState();
+  const [email, setEmail] = useState('nesrinebhk41@gmail.com');
+  const [phone, setPhone] = useState('+212629282716');
   const [password, setPassword] = useState();
   const [newPassword, setNewPassword] = useState();
   const [selectedCategories, setSelectedCategories] = useState([]);
-
+  const [user, setUser] = useState({ user: {} });
+  const [error, setError] = useState('');
+  console.log({ email: email, phone: phone, password: password, newPassword: newPassword, selectedCategories: selectedCategories });
   const onCategoriesChange = event => {
     const {
       target: { value },
@@ -38,6 +44,75 @@ export default function PartnerSettings() {
     );
   };
 
+  async function envoiDemandeNom() {
+    const response = await request
+      .post(API_URL + '/shop/partner/update', {
+        idShop: '61dcd818a325bf490d036a0e',
+        type: 'nom',
+      })
+      .then(response => {
+        //if (response.status !== 200) throw Error(response.message);
+        return response;
+      })
+      .catch(error => {
+        return error.message;
+      });
+    console.log(response);
+  }
+
+  async function envoiDemandeCat() {
+    const response = await request
+      .post(API_URL + '/shop/partner/update', {
+        idShop: '61dcd818a325bf490d036a0e',
+        type: 'categorie',
+        categorie: selectedCategories[0],
+      })
+      .then(response => {
+        //if (response.status !== 200) throw Error(response.message);
+        return response;
+      })
+      .catch(error => {
+        return error.message;
+      });
+    console.log(response);
+  }
+  async function submit(e) {
+    e.preventDefault();
+    const response = await request
+      .post(API_URL + '/auth/user/updateUser', {
+        email: email,
+        phone: phone,
+        password: password,
+        newPassword: newPassword,
+        token:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU5ZjcxYWVhMjU1ZjBkZTNjMzM3YjgiLCJlbWFpbCI6Im5lc3JpbmViaGs0MUBnbWFpbC5jb20iLCJwaG9uZSI6IisyMTI2MjkyMzI5NDkiLCJmaXJzdE5hbWUiOiJuZXNyaW5lIiwibGFzdE5hbWUiOiJiaGsiLCJpc0FjdGl2ZSI6dHJ1ZSwiaXNWZXJpZmllZCI6ZmFsc2UsImlzUmVtb3ZlZCI6ZmFsc2UsImlzUmVzZXRlZCI6ZmFsc2UsIl9jcmVhdGVkQXQiOiIyMDIyLTAxLTIxIDAwOjU4OjE0IiwicGFzc3dvcmQiOiIkMmIkMDQkdXFaNTZTSm40blF0MEsxUmdjVXQxLi5nLnByWExlRUk3TjVvQjFMakx3bFVVMHdYWklLRTYiLCJpYXQiOjE2NDI3MjM0MjcsImV4cCI6MTY0Mjc1OTQyN30.s5OgRRYIypJ1D9m0sBYCKu8TDdWuyReqLFPDLZXwEg4',
+      })
+      .then(response => {
+        //if (response.status !== 200) throw Error(response.message);
+        return response;
+      })
+      .catch(error => {
+        return error.message;
+      });
+    if (
+      response == 'TOKEN INVALID' ||
+      response == "L'ANCIEN MOT DE PASSE EST OBLIGATOIRE" ||
+      response == "CE UTILISATEUR N'EXISTE PAS" ||
+      response == 'VOUS AVEZ PAS LE DROIT DE CHANGER CES DONNEES (AUTHENTIFICATION PAR GOOGLE)' ||
+      response == "L'ANCIEN MOT DE PASSE EST INCORRECT" ||
+      response == "L'ADRESSE MAIL N'EST PAS VALIDE" ||
+      response == 'CE UTILISATEUR EXISTE DEJA' ||
+      response == 'LA TAILLE DU MOT DE PASSE DOIT ETRE SUPERIEUR A 8'
+    ) {
+      setError(response);
+      console.log(error);
+    } else {
+      setUser({ user: response });
+      console.log(user);
+    }
+    console.log(user.user._id);
+  }
+
   return (
     <body>
       <div className={st.spread}>
@@ -45,6 +120,7 @@ export default function PartnerSettings() {
 
         <Container className={st.parentDiv}>
           <h1 style={style.heading}>Informations personnelles : </h1>
+          <span style={{ color: '#c32630' }}>{error}</span>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={5}>
               <Grid item xs={6}>
@@ -65,7 +141,7 @@ export default function PartnerSettings() {
               </Grid>
               <Grid item xs={9}></Grid>
               <Grid item xs={3}>
-                <Button variant='contained' size='large' style={style.button}>
+                <Button variant='contained' size='large' onClick={e => submit(e)} style={style.button}>
                   Sauvegarder
                 </Button>
               </Grid>
@@ -78,7 +154,7 @@ export default function PartnerSettings() {
                 <span style={style.requestSpan}>Demande de changement du nom du shop : </span>
               </Grid>
               <Grid item xs={3}>
-                <Button variant='contained' size='large' style={style.button}>
+                <Button variant='contained' onClick={envoiDemandeNom} size='large' style={style.button}>
                   ENVOYER DEMANDE
                 </Button>
               </Grid>
@@ -111,7 +187,7 @@ export default function PartnerSettings() {
                 </FormControl>
               </Grid>
               <Grid item xs={3}>
-                <Button variant='contained' size='large' style={style.button}>
+                <Button onClick={envoiDemandeCat} variant='contained' size='large' style={style.button}>
                   APPROUVER
                 </Button>
               </Grid>

@@ -52,7 +52,7 @@ export default function SignIn({ open, close }) {
       .post(baseURL + '/login', {
         userName: data.userName,
         password: data.password,
-        role: 'admin',
+        role: 'partner',
         remmemberMe: false,
       })
       .then(response => {
@@ -89,8 +89,7 @@ export default function SignIn({ open, close }) {
         <Box sx={style}>
           <form action='' onSubmit={e => submit(e)} className='signUpForm'>
             <h2 className='connect'>SE CONNECTER</h2>
-            <span> </span>
-            {error}
+            <span style={{ color: '#c32630' }}>{error}</span>
             <input
               className='input'
               type='email'
