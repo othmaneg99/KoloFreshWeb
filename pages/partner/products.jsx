@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import st from '/styles/partnerProducts.module.scss';
 import ButtonRed from '@components/button/buttonRed.component';
 import { Box } from '@mui/system';
-import { Stack } from '@mui/material';
-import { Pagination } from '@mui/material';
+import { Head, Stack, Pagination } from '@mui/material';
 import Image from 'next/image';
 import plante from '@assets/images/plante.svg';
 import SideBar from '@components/sideBar/sideBar.component';
@@ -66,14 +65,15 @@ export default function PartnerProducts() {
 
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>Kolo Fresh</title>
         <meta name='description' content='Kolo Fresh' />
         <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no'></meta>
         <link rel='icon' href='/favicon.ico' />
         <script src='https://widget.cloudinary.com/v2.0/global/all.js' type='text/javascript'></script>
         <script src='../../asserts/js/uploadclientwidget.js' type='text/javascript'></script>
-      </Head>
+      </Head> */}
+
       <div className={st.container}>
         <div className={st.spread}>
           <SideBar activePage={1} />
