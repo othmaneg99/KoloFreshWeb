@@ -57,7 +57,11 @@ export default function PartnerProducts() {
   };
 
   const toggleProductStatus = product => {
-    // 7ati function dyalek hna
+    /*const bool = any;
+    if (product.isActivate == true) bool = false;
+    else bool = true;
+    console.log(bool);*/
+    console.log(product);
   };
 
   return (

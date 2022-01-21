@@ -1,7 +1,28 @@
 import Button from '@mui/material/Button';
 import Image from 'next/image';
 import st from '/styles/partnerProducts.module.scss';
-
+import Request from '../../Request/request';
+import { API_URL } from 'config';
+let request = new Request({});
+async function Desactivate(id) {
+  const response = await request.update(API_URL + '/prod/update', {
+    filters: { _id: id },
+    data: { isActivated: false },
+  });
+}
+async function Activate(id) {
+  const response = await request.update(API_URL + '/prod/update', {
+    filters: { _id: id },
+    data: { isActivated: true },
+  });
+}
+async function Delete(id) {
+  const response = await request.update(API_URL + '/prod/update', {
+    filters: { _id: id },
+    data: { isRemoved: true },
+  });
+  console.log(response);
+}
 export default function ProductCard(props) {
   return (
     <div className={st.prodCard}>
@@ -17,10 +38,24 @@ export default function ProductCard(props) {
           </div>
 
           <div className={st.actionButtons}>
-            <Button className={st.btnDesac} variant='contained' onClick={props.toggleProductStatus}>
+            <Button
+              className={st.btnDesac}
+              variant='contained'
+              onClick={() => {
+                props.product.isActivated ? Desactivate(props.product._id) : Activate(props.product._id);
+              }}
+            >
               {props.product.isActivated ? 'Désactiver' : 'Activer'}
             </Button>
-            <Button className={st.btnDelete} variant='contained'>
+            <Button
+              className={st.btnDelete}
+              variant='contained'
+              onClick={() => {
+                if (window.confirm('Are you sure?')) {
+                  Delete();
+                }
+              }}
+            >
               Supprimer
             </Button>
           </div>
