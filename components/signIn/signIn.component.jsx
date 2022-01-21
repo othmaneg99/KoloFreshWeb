@@ -4,6 +4,7 @@ import Modal from '@mui/material/Modal';
 import Request from '../../tools/Request';
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { API_URL } from 'config';
 
 const style = {
   position: 'absolute',
@@ -22,7 +23,6 @@ const style = {
   borderRadius: '30px',
 };
 
-const baseURL = 'http://localhost:3005/auth';
 let request = new Request({});
 
 export default function SignIn({ open, close }) {
@@ -43,39 +43,31 @@ export default function SignIn({ open, close }) {
     const newData = { ...data };
     newData[e.target.id] = e.target.value;
     setData(newData);
-    console.log(newData);
   }
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   async function submit(e) {
     e.preventDefault();
-    const response = await request
-      .post(baseURL + '/login', {
-        userName: data.userName,
-        password: data.password,
-        role: 'admin',
-        remmemberMe: false,
-      })
-      .then(response => {
-        return response;
-      })
-      .catch(error => {
-        return error.message;
-      });
+    console.log('check this', data.userName, data.password);
+    const response = await request.post(API_URL + 'auth/login', {
+      userName: data.userName,
+      password: data.password,
+      role: 'admin',
+      remmemberMe: false,
+    });
 
     if (response) {
-      setUser({ user: response.user, token: response.token, isLoggedIn: true });
-      setIsLoggedIn(true);
-    } else setUser({ isLoggedIn: false });
-    console.log(user.isLoggedIn);
-  }
-  const router = useRouter();
-  const handleClick = () => {
-    if (!user.isLoggedIn) {
-      setError('Login ou mot de passe incorrect');
-    } else {
+      console.log('login success');
+      const session = { user: response.user, token: response.token, isLoggedIn: true };
+      sessionStorage.setItem('user', JSON.stringify(session));
+      setUser(session);
       router.push('/partner/products');
+    } else {
+      setUser({ isLoggedIn: false });
+      setError('Login ou mot de passe incorrect');
     }
-  };
+  }
+
+  const router = useRouter();
 
   return (
     <div>
@@ -121,9 +113,7 @@ export default function SignIn({ open, close }) {
               </label>
             </div>
 
-            <button className='btn btnConnect' onClick={handleClick}>
-              SE CONNECTER
-            </button>
+            <button className='btn btnConnect'>SE CONNECTER</button>
             <button className='btn btnCreateAccount'>CREER UN COMPTE</button>
           </form>
         </Box>

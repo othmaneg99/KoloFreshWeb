@@ -14,46 +14,58 @@ export default function AdminShops() {
   var [searchName, setSearchName] = useState('');
   var [category, setCategory] = useState('');
   var [shops, setShops] = useState([]);
+
   async function getShops(name) {
     const response = await request.get(API_URL + '/shop/search', {
       filters: { isRemoved: false, name: name },
     });
-    console.log(response);
 
     if (Array.isArray(response)) {
-      setShops(response);
+      setShops(await getUpdatedShops(response));
     } else {
-      setShops([response]);
+      setShops(await getUpdatedShops([response]));
     }
   }
-  async function getCateg(id) {
-    const response = await request.get(API_URL + '/shop/categ', {
-      filters: { isRemoved: false, _id: id },
-    });
-    if (response) return response.name;
-    //return response;
+
+  async function getUpdatedShops(shops) {
+    const res = [];
+    for (const s of shops) {
+      const shop = { ...s };
+      shop.cat = await getCateg(s.idCateg);
+      res.push(shop);
+    }
+    return res;
   }
+
+  async function getCateg(id) {
+    return 'SUCRES';
+    // const response = await request.get(API_URL + '/shop/categ', {
+    //   filters: { isRemoved: false, _id: id },
+    // });
+    // if (response) return response.name;
+    // else return ' - ';
+  }
+
   async function getShopByCateg(name) {
     const cat = await request.get(API_URL + '/shop/categ', {
       filters: { isRemoved: false, name: name },
     });
     const id = cat._id;
-    consolo.log('id: ' + id);
     const response = await request.get(API_URL + '/shop', {
       filters: { isRemoved: false, idCateg: id },
     });
-    console.log(response);
 
     if (Array.isArray(response)) {
-      setShops(response);
+      setShops(await getUpdatedShops(response));
     } else {
-      setShops([response]);
+      setShops(await getUpdatedShops([response]));
     }
   }
+
   useEffect(() => {
     getShops('');
   }, []);
-  console.log(shops);
+
   return (
     <div className={styles.container}>
       <AdminSideBar />
@@ -64,7 +76,7 @@ export default function AdminShops() {
               type='search'
               name='search'
               className={styles.searchInput}
-              placeholder='rechercher shop'
+              placeholder='Chercher shop'
               id=''
               value={searchName}
               onChange={event => {
@@ -114,12 +126,10 @@ export default function AdminShops() {
             <th></th>
             <tbody>
               {shops.map(s => {
-                const cat = getCateg(s.idCateg);
-
                 return (
                   <tr key={s._id}>
                     <td>{s.name}</td>
-                    <td className={styles.light}>x</td>
+                    <td className={styles.light}>{s.cat}</td>
                     <td className={styles.light}>{s._createdAt}</td>
                     <td>
                       <a href=''>Voir</a>
@@ -128,30 +138,6 @@ export default function AdminShops() {
                 );
               })}
             </tbody>
-            {/*<tr>
-              <td>Cuisine Samia</td>
-              <td className={styles.light}>SUCRES</td>
-              <td className={styles.light}>20/1/2022</td>
-              <td>
-                <a href=''>Voir</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Cuisine Samia</td>
-              <td className={styles.light}>SUCRES</td>
-              <td className={styles.light}>20/1/2022</td>
-              <td>
-                <a href=''>Voir</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Cuisine Samia</td>
-              <td className={styles.light}>SUCRES</td>
-              <td className={styles.light}>20/1/2022</td>
-              <td>
-                <a href=''>Voir</a>
-              </td>
-            </tr>*/}
           </table>
         </div>
         <div className={styles.pagination}>

@@ -52,7 +52,7 @@ export default function Home() {
               </p>
             </Container>
           </Grid>
-          <Grid xs={2}></Grid>
+          <Grid item xs={2}></Grid>
           <Grid item xs={4}>
             <Image src={tajine} width={400} alt='Tajine' />
           </Grid>

@@ -31,6 +31,11 @@ export default function SideBar(props) {
     }
   };
 
+  const signOut = event => {
+    sessionStorage.removeItem('user');
+    router.push('/');
+  };
+
   return (
     <div className={st.sideBar}>
       <a href='/' className={st.pagesButtons}>
@@ -87,7 +92,7 @@ export default function SideBar(props) {
           >
             Aide
           </a>
-          <a href='#' className={st.signOutBtn}>
+          <a href='#' className={st.signOutBtn} onClick={signOut}>
             <Image width={'18px'} height={'18px'} src={logout} alt='signOut' />
             <p style={{ display: 'inline', marginTop: '50px' }}> Se déconnecter </p>
           </a>
